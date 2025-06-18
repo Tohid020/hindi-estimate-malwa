@@ -1,0 +1,267 @@
+ <!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="https://cdn.tailwindcss.com"></script>
+    <title>signup page</title>
+</head>
+<form id="form">
+
+  <h1 class="ml-[26rem] mt-[4rem] text-3xl text-white underline">Welcome Our Malwa Trolly Estimate </h1>
+<body class="bg-sky-400">
+
+    <div class="border-2 w-[55rem] h-[25rem] mt-[3rem] ml-[15rem]  rounded-lg">
+
+    <div class="mt-[80px]  ml-[3rem] text-3xl text-blue-800 ">
+<label>Enter Name<br>
+    <input id="Entername" class="w-[50rem] h-[40px] mt-[10px] rounded-lg      " type="text"/>
+</label><br><br>
+
+<label >Enter Password<br>
+    <input id="Enterpassword" class="w-[50rem] h-[40px] mt-[10px] rounded-lg"  type="password"/>
+</label>
+
+</div>
+
+<div  class="border-2 w-[100px] text-center ml-[50px] mt-[40px] text-lg font-medium rounded-lg" >
+<button  onclick="myrefresh(event)"  type="submit" >Submit</button>
+</div>
+
+    </div>
+    </form>
+
+ <script>
+let name  = document.getElementById("Entername")
+let Password = document.getElementById("Enterpassword")
+let form = document.getElementById("form")
+
+function myrefresh(event){
+    event.preventDefault();
+let name  = document.getElementById("Entername").value;
+let Password = document.getElementById("Enterpassword").value;
+
+// Pehle localStorage me set karna (yaha sirf testing ke liye hardcoded)
+
+ localStorage.setItem("name",""  );
+  localStorage.setItem("password","");
+
+ // Hardcoded correct credentials
+    let correctName = "";
+    let correctPass = "";
+
+
+
+// Ab stored value lena
+
+let storedName = localStorage.getItem("name");
+let storedPass = localStorage.getItem("password");
+
+ console.log(name,Password)
+
+
+
+  if (name === storedName && Password === storedPass) {
+    alert("Welcome to Our Home page!");
+       localStorage.setItem("userLoggedIn", "true");
+    window.location.href = "/btn.html";
+   
+    
+    } else {
+    alert("Invalid Name or Password");
+  }
+
+}
+
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+
+});
+
+document.addEventListener('keydown', function (e) {
+  // F12
+  if (e.keyCode === 123) {
+    e.preventDefault();
+    alert("Inspect mat khol bhai!");
+  }
+  // Ctrl+Shift+I
+  if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+    e.preventDefault();
+    alert("Inspect mat khol bhai!");
+  }
+  // Ctrl+U (View Source)
+  if (e.ctrlKey && e.keyCode === 85) {
+    e.preventDefault();
+    alert("Source code dekhne ki koshish mat kar bhai!");
+  }
+});
+
+</script> 
+</body>
+</html> -->
+
+<!-- pura code -->
+<!-- <script>
+function login(event) {
+    event.preventDefault();
+    
+    let name = document.getElementById("username").value;
+    let pass = document.getElementById("password").value;
+
+    // Hardcoded correct credentials
+    let correctName = "";
+    let correctPass = "";
+
+    if (name === correctName && pass === correctPass) {
+        // Login success
+        localStorage.setItem("userLoggedIn", "true");
+        alert("Login Successful!");
+        window.location.href = "/btn.html";
+    } else {
+        alert("Invalid name or password");
+    }
+}
+</script> -->
+
+
+
+<!-- New code -->
+
+<!DOCTYPE html>
+ <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-sky-400">
+
+<form id="form">
+    <h1 class="ml-[22rem] mt-[4rem] text-3xl text-white underline">Hindi Version Welcome Our Malwa Trolley Estimate</h1>
+
+    <div class="border-2 w-[55rem] h-[25rem] mt-[3rem] ml-[15rem] rounded-lg">
+        <div class="mt-[80px] ml-[3rem] text-3xl text-blue-800">
+            <label>Enter Name<br>
+                <input id="Entername" class="w-[50rem] h-[40px] mt-[10px] rounded-lg" type="text"/>
+            </label><br><br>
+
+            <label>Enter Password<br>
+                <input id="Enterpassword" class="w-[50rem] h-[40px] mt-[10px] rounded-lg" type="password"/>
+            </label>
+        </div>
+
+        <div class="border-2 w-[100px] text-center ml-[50px] mt-[40px] text-lg font-medium rounded-lg">
+            <button onclick="myrefresh(event)" type="submit">Submit</button>
+        </div>
+    </div>
+</form>
+
+<!-- new but important code -->
+
+ <!-- <script>
+// pehle encode karne ka function
+
+function encodePassword(password) {
+    return btoa(password); // 64
+}
+
+function encodeName(name) {
+    return btoa(name); // 64
+} 
+
+
+
+function myrefresh(event) {
+    event.preventDefault();
+
+    let name = document.getElementById("Entername").value;
+    let password = document.getElementById("Enterpassword").value;
+
+    // Hardcoded correct credentials
+    let correctName = "";
+    let correctPass = "";
+
+    // LocalStorage me set karna
+    localStorage.setItem("name",encodeName(correctName));
+    localStorage.setItem("password", encodePassword(correctPass)); // encoded password store
+
+    // Ab stored value lena
+    let storedName = localStorage.getItem("name");
+    let storedPass = localStorage.getItem("password");
+
+    // ab input password ko bhi encode kar ke compare
+    let encodedInputName = encodeName(name);
+    let encodedInputPass = encodePassword(password);
+
+    console.log(name, password);
+
+    if (encodedInputName === storedName && encodedInputPass === storedPass) {
+        alert("Welcome to Our Home page!");
+        localStorage.setItem("userLoggedIn", "true");
+        window.location.href = "/btn.html";
+  
+    } else {
+        alert("Invalid Name or Password ");
+    }
+}
+
+// Disable inspect & view source shortcut
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
+document.addEventListener('keydown', function (e) {
+    if (e.keyCode === 123) { e.preventDefault();  }
+    if (e.ctrlKey && e.shiftKey && e.keyCode === 73) { e.preventDefault(); }
+    if (e.ctrlKey && e.keyCode === 85) { e.preventDefault();  }
+});
+ </script>  -->
+
+
+
+ <script>
+function _0xabc1(_0xa1){return btoa(_0xa1);}
+
+function myrefresh(_0xb2){_0xb2.preventDefault();
+let _0xc3=document.getElementById("Entername").value;
+let _0xd4=document.getElementById("Enterpassword").value;
+
+let _0xe5="TWFsd2E="; 
+let _0xf6="TWFsd2E4MjI=";   
+
+localStorage.setItem("name",_0xe5);
+localStorage.setItem("password",_0xf6);
+
+let _0xg7=localStorage.getItem("name");
+let _0xh8=localStorage.getItem("password");
+
+let _0xi9=_0xabc1(_0xc3);
+let _0xj0=_0xabc1(_0xd4);
+
+console.log(_0xc3,_0xd4);
+
+if(_0xi9===_0xg7&&_0xj0===_0xh8){
+    alert("Welcome to Our Home page!");
+    localStorage.setItem("userLoggedIn","true");
+    window.location.href="/btn.html";
+}else{
+    alert("Invalid Name or Password ");
+}}
+
+document.addEventListener('contextmenu',function(e){e.preventDefault();});
+document.addEventListener('keydown',function(e){
+if(e.keyCode===123){e.preventDefault();}
+if(e.ctrlKey&&e.shiftKey&&e.keyCode===73){e.preventDefault();}
+if(e.ctrlKey&&e.keyCode===85){e.preventDefault();}
+});
+</script>
+
+
+
+
+
+
+</body>
+</html> 
+
+

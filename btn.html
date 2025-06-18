@@ -1,0 +1,163 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Buttton</title>
+</head>
+<style>
+    #top{
+        display: flex;
+        gap: 20px;
+    }
+body{
+    background-color: blue;
+}
+     
+    button{
+margin-left: 85px;
+margin-top: 10px;
+border: none;
+border-radius: 25px;
+background-color: rgb(138, 138, 240);
+color: white;
+font-weight: bold;
+font-size: 16px;
+cursor: pointer;
+
+
+}
+
+button:hover{
+    background-color:white;
+    color: blue;
+
+   
+}
+
+
+#btn{
+    width: 200px; 
+    height: 45px;
+    margin-top: 1rem;
+  
+   }
+
+   #btn1{
+    width: 200px;
+    height: 45px;}
+
+    #logout{
+    width: 1130px; 
+    height: 45px;
+    margin-top: 1rem; 
+ font-size: 20px;
+   
+    }
+
+
+ p{
+    color: white;
+    margin-left: 100px;
+    margin-top: 8rem;
+    font-size: 25px;
+    font-weight:bolder;
+   
+    }
+
+</style>
+<body>
+    <div id="top">
+
+    <div>
+        <p > 6 TYRE WORK</p>
+ <a href="./10accidental.html"><button  id="btn"  >Accidental</button></a><br>
+ <a href="./10New.html"> <button  id="btn1">New</button></a><br>
+<a href="./10old.html"><button   id="btn1">Old</button></a>
+</div>
+
+<div>
+    <p >10 TYRE WORK</p>
+<a href="./10accidental.html"><button  id="btn"  >Accidental</button></a><br>
+<a href="./10New.html"> <button  id="btn1">New</button></a><br>
+<a href="./10old.html"><button   id="btn1">Old</button></a>
+</div>
+
+<div>
+    <p >12 TYRE WORK</p>
+<a href="./12accidental.html"><button  id="btn"  >Accidental</button></a><br>
+<a href="./12new.html"> <button  id="btn1">New</button></a><br>
+<a href="./12old.html"><button   id="btn1">Old</button></a>
+</div>
+
+<div>
+    <p >16 TYRE WORK</p>
+<a href="./16accidental.html"><button  id="btn"  >Accidental</button></a><br>
+<a href="./16New.html"> <button  id="btn1">New</button></a><br>
+<a href="./16old.html"><button   id="btn1">Old</button></a>
+
+</div>
+
+</div>
+
+<button  id="logout" onclick="logout()">Logout</button>
+
+
+
+<script>
+
+if (localStorage.getItem("userLoggedIn") !== "true") {
+        alert("Access Denied. Pehle Signup karo!");
+        window.location.href = "/signuppage.html";
+    }
+
+    // Logout function
+function logout() {
+    localStorage.removeItem("userLoggedIn");
+    alert("Logged out!");
+    window.location.href = "/signuppage.html";
+}
+
+document.addEventListener('contextmenu',function(e){e.preventDefault();});
+document.addEventListener('keydown',function(e){
+if(e.keyCode===123){e.preventDefault();}
+if(e.ctrlKey&&e.shiftKey&&e.keyCode===73){e.preventDefault();}
+if(e.ctrlKey&&e.keyCode===85){e.preventDefault();}
+});
+
+</script>
+
+
+<!-- <button onclick="logout()">Logout</button> -->
+
+<!-- <script>
+// Check login status on page load
+if (localStorage.getItem("userLoggedIn") !== "true") {
+    alert("Access Denied! Please login first.");
+    window.location.href = "/signuppage.html";
+}
+
+// Logout function
+function logout() {
+    localStorage.removeItem("userLoggedIn");
+    alert("Logged out!");
+    window.location.href = "/signuppage.html";
+}
+</script> -->
+
+
+
+
+</body>
+</html> 
+
+
+
+
+
+
+
+
+
+

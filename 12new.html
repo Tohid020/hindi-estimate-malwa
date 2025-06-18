@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Material Sheet</title>
+  <link rel="stylesheet" href="./stylesheet.css" />
+</head>
+<body>
+
+  <div id="mainContent">
+
+ <nav>
+    <h1>Estimate</h1>
+   <div id="head">
+      <div>
+        <h3><u>Malwa Trolley</u></h3>
+        <p>09,Nemwar Road,Udyog nagar ,Palda<br>Indore</p>
+        <p>Contact  - +91 822 4000 822</p>
+        <p> GSTIN : 23CLKPM9473J1ZI</p>
+      </div>
+  
+      <div>
+        <img src="./Malwalogo.jpeg" alt="Image">
+      </div>
+    </div>
+  
+    <div id="main">
+      <label><u>Estimate To</u><br>
+        <input type="text" id="invoiceTo">
+      </label>
+  
+      <label><u>Invoice No.</u><br>
+        <input type="text" id="dataNo">
+      </label>
+  
+      <label><u>Date</u><br>
+        <input type="date" id="date">
+      </label>
+    </div>
+  
+    <div id="btm">
+      <label><u>Consignee GST No.</u><br>
+        <input type="text" id="gstNo">
+      </label>
+  
+      <label><u>Veh.No.</u><br>
+        <input type="text" id="vehNo">
+      </label>
+    </div>
+
+  
+  </nav> 
+  
+
+
+
+
+
+
+
+
+
+  <div id="controls">
+    <button onclick="addRow()">Add Row</button>
+    <button onclick="deleteSelectedRows()">Delete Selected</button>
+    <button onclick="openSelectedInNewPage(),goNext()">Next</button>
+    <button onclick="downloadTableAsImage()">Download as Image</button>
+    <button onclick="downloadTableAsPDF()">Download as PDF</button>
+     <button onclick="logout()">Logout</button>
+      <button onclick="selectAllCheckboxes()">Select All</button> <!-- 👈 New button -->
+    <!-- <button onclick="saveData()">Local storage</button> -->
+     <a href="./btn.html"> <button>Back</button></a>
+</div>
+
+  <table id="materialTable">
+    <thead>
+      <tr>
+        
+        <th>checkbox</th>
+        <th>Description</th>
+        <th>Rate</th>
+        <th>QTY</th>
+         <th>Total</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+
+   
+    <!-- New -->
+
+            <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <select class="description">
+                    <option value="बॉडी नई">बॉडी नई</option>
+                  </select>
+                </td>
+                <td><input class="rate" type="text" value="105kg" placeholder="Enter Rate" /></td>
+             <td><input  class="qty"  type="number"  value="1"     placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+              </tr>
+              
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <select class="description">
+                    <option value="सब-चेसिस नई एक्सचेंज में">सब-चेसिस नई एक्सचेंज में</option>
+                  </select>
+                </td>
+                <td><input class="rate" type="number" value="120000" placeholder="Enter Rate" /></td>
+             <td><input  class="qty"  type="number"    value="1"   placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+              </tr>
+              
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <select class="description">
+                    <option value="डाला नई एक्सचेंज में">डाला नई एक्सचेंज में</option>
+                  </select>
+                </td>
+                <td><input class="rate" type="number" value="21000" placeholder="Enter Rate" /></td>
+             <td><input  class="qty"  type="number"   value="1"    placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+              </tr>
+              
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <select class="description">
+                    <option value="डाला नया, पुराना लिए बिना">डाला नया, पुराना लिए बिना</option>
+                
+                  </select>
+                </td>
+                <td><input class="rate" type="number" value="24000" placeholder="Enter Rate" /></td>
+             <td><input  class="qty"  type="number"  value="1"     placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+              </tr>
+
+
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <select class="description">
+                     <option value="सब-चेसिस पुराना लिए बिना">सब-चेसिस पुराना लिए बिनाज</option>
+                  </select>
+                </td>
+                <td><input class="rate" type="number" value="130000" placeholder="Enter Rate" /></td>
+             <td><input  class="qty"  type="number"  value="1"     placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+              </tr>
+
+
+
+              
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <select class="description">
+                    <option value="हाइट बढ़ाना पैकेज 90&quot; सिंपल फिक्स">हाइट बढ़ाना पैकेज 90" सिंपल फिक्स</option>
+                  </select>
+                </td>
+                <td><input class="rate" type="number" value="75000" placeholder="Enter Rate" /></td>
+             <td><input  class="qty"  type="number" value="1"      placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+              </tr>
+              
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <select class="description">
+                    <option value="हाइट बढ़ाना पैकेज 90&quot; सिंपल फोल्डिंग">हाइट बढ़ाना पैकेज 90" सिंपल फोल्डिंग</option>
+                  </select>
+                </td>
+                <td><input class="rate" type="number" value="82000" placeholder="Enter Rate" /></td>
+             <td><input  class="qty"  type="number" value="1"      placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+              </tr>
+              
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <select class="description">
+                    <option value=" हाइट बढ़ाना 90 से 100 टन तक">हाइट बढ़ाना 90 से 100 टन तक</option>
+                  </select>
+                </td>
+                <td><input class="rate" type="number" value="105000" placeholder="Enter Rate" /></td>
+             <td><input  class="qty"  type="number"  value="1"     placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+              </tr>
+              
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <select class="description">
+                    <option value="सिर्फ हाइट 90&quot; फिट">सिर्फ हाइट 90" फिट</option>
+                  </select>
+                </td>
+                <td><input class="rate" type="number" value="58000" placeholder="Enter Rate" /></td>
+             <td><input  class="qty"  type="number" value="1"      placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+              </tr>
+              
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <select class="description">
+                    <option value="सिर्फ हाइट 90&quot; फोल्डिंग">सिर्फ हाइट 90" फोल्डिंग</option>
+                  </select>
+                </td>
+                <td><input class="rate" type="number" value="65000" placeholder="Enter Rate" /></td>
+             <td><input  class="qty"  type="number"   value="1"    placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+              </tr>
+              
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <select class="description">
+                    <option value="सिर्फ अस्सेसरी पैकेज ">सिर्फ अस्सेसरी पैकेज </option>
+                  </select>
+                </td>
+                <td><input class="rate" type="number" value="24000" placeholder="Enter Rate" /></td>
+             <td><input  class="qty"  type="number" value="1"      placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+              </tr>
+              
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <select class="description">
+                    <option value=" 6 सिंगल पाइप दोनों साइड">6 सिंगल पाइप दोनों साइड</option>
+                  </select>
+                </td>
+                <td><input class="rate" type="number" value="14000" placeholder="Enter Rate" /></td>
+             <td><input  class="qty"  type="number" value="1"      placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+              </tr>
+              
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <select class="description">
+                    <option value="पीछे डाला बढ़ाना (पटिया) सिर्फ">पीछे डाला एक्सटेंशन (पटिया) सिर्फ</option>
+                  </select>
+                </td>
+                <td><input class="rate" type="number" value="11000" placeholder="Enter Rate" /></td>
+             <td><input  class="qty"  type="number" value="1"      placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+              </tr>
+              
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <select class="description">
+                    <option value="आगे कैनोपी बढ़ाना सिर्फ">सामने कैनोपी एक्सटेंशन सिर्फ</option>
+                  </select>
+                </td>
+                <td><input class="rate" type="number" value="5500" placeholder="Enter Rate" /></td>
+             <td><input  class="qty"  type="number" value="1"      placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+              </tr>
+              
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <select class="description">
+                    <option value="पीछे डाला बढ़ाना (पटिया) पिलर के साथ">पीछे डाला एक्सटेंशन (पटिया) पिलर के साथ</option>
+                  </select>
+                </td>
+                <td><input class="rate" type="number" value="16000" placeholder="Enter Rate" /></td>
+             <td><input  class="qty"  type="number" value="1"      placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+              </tr>
+              
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <select class="description">
+                    <option value="आगे  कैनोपी बढ़ाना पिलर के साथ">सामने कैनोपी एक्सटेंशन पिलर के साथ</option>
+                  </select>
+                </td>
+                <td><input class="rate" type="number" value="7000" placeholder="Enter Rate" /></td>
+             <td><input  class="qty"  type="number"  value="1"     placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+              </tr>
+          
+
+   
+    
+    
+
+
+
+  <!-- Ganeral cabin Parts -->
+
+
+    <tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <select class="description">
+            <option value="आगे की मेन काँच (विंडशील्ड">फ्रंट मेन ग्लास विंडशील्ड</option>
+          </select>
+        </td>
+        <td><input class="rate" type="number" value="6800" placeholder="Enter Rate" /></td>
+           <td><input  class="qty"  type="number" value="1"      placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+      </tr>
+      
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <select class="description">
+            <option value="गेट का साइड ग्लास">गेट का साइड काँच</option>
+          </select>
+        </td>
+        <td><input class="rate" type="number" value="480" placeholder="Enter Rate" /></td>
+           <td><input  class="qty"  type="number" value="1"      placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+      </tr>
+      
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <select class="description">
+            <option value="डोर ग्लास">फाटक काँच</option>
+          </select>
+        </td>
+        <td><input class="rate" type="number" value="1400" placeholder="Enter Rate" /></td>
+           <td><input  class="qty"  type="number" value="1"      placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+      </tr>
+      
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <select class="description">
+            <option value="विंडो ग्लास">विंडो काँच</option>
+          </select>
+        </td>
+        <td><input class="rate" type="number" value="1100" placeholder="Enter Rate" /></td>
+           <td><input  class="qty"  type="number"value="1"       placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+      </tr>
+      
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <select class="description">
+            <option value="रूफ टॉप ग्लास">रूफ टॉप काँच</option>
+          </select>
+        </td>
+        <td><input class="rate" type="number" value="1800" placeholder="Enter Rate" /></td>
+           <td><input  class="qty"  type="number" value="1"      placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+      </tr>
+      
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <select class="description">
+            <option value="गेट का डोर टॉप ग्लास">गेट का डोर टॉप काँच</option>
+          </select>
+        </td>
+        <td><input class="rate" type="number" value="1300" placeholder="Enter Rate" /></td>
+           <td><input  class="qty"  type="number" value="1"      placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+      </tr>
+      
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <select class="description">
+            <option value="फ्रंट ग्लास रबर स्ट्रिप">फ्रंट काँच का  रबर स्ट्रिप</option>
+          </select>
+        </td>
+        <td><input class="rate" type="number" value="2150" placeholder="Enter Rate" /></td>
+           <td><input  class="qty"  type="number" value="1"       placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+      </tr>
+      
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <select class="description">
+            <option value="साइड ग्लास स्टैंड">साइड काँच का थिया</option>
+          </select>
+        </td>
+        <td><input class="rate" type="number" value="1100" placeholder="Enter Rate" /></td>
+           <td><input  class="qty"  type="number" value="1"      placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+      </tr>
+      
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <select class="description">
+            <option value="विंडो ग्लास रबर">विंडो काँच रबर</option>
+          </select>
+        </td>
+        <td><input class="rate" type="number" value="880" placeholder="Enter Rate" /></td>
+           <td><input  class="qty"  type="number"  value="1"     placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+      </tr>
+      
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <select class="description">
+            <option value="डोर ग्लास मशीन सेट BS4">फाटक काँच मशीन सेट BS4</option>
+          </select>
+        </td>
+        <td><input class="rate" type="number" value="1400" placeholder="Enter Rate" /></td>
+           <td><input  class="qty"  type="number"  value="1"     placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+      </tr>
+      
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <select class="description">
+            <option value="डोर RC लॉक BS4">फाटक RC लॉक BS4</option>
+          </select>
+        </td>
+        <td><input class="rate" type="number" value="850" placeholder="Enter Rate" /></td>
+           <td><input  class="qty"  type="number" value="1"      placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+      </tr>
+      
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <select class="description">
+            <option value="RC लॉक फुल सेट BS4">RC लॉक पुरा सेट BS4</option>
+          </select>
+        </td>
+        <td><input class="rate" type="number" value="1100" placeholder="Enter Rate" /></td>
+           <td><input  class="qty"  type="number" value="1"      placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+      </tr>
+      
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <select class="description">
+            <option value="डोर हैंडल BS4">फाटक हैंडल BS4</option>
+          </select>
+        </td>
+        <td><input class="rate" type="number" value="1200" placeholder="Enter Rate" /></td>
+           <td><input  class="qty"  type="number"  value="1"     placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+      </tr>
+
+
+
+
+
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <select class="description">
+            <option value="डोर लॉक BSY">फाटक लॉक BS4</option>
+          </select>
+        </td>
+        <td><input class="rate" type="number" value="1400" placeholder="Enter Rate" /></td>
+           <td><input  class="qty"  type="number"  value="1"     placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+      </tr>
+      
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <select class="description">
+            <option value="डोर ट्रिम पैड BS3">फाटक ट्रिम पैड BS3</option>
+          </select>
+        </td>
+        <td><input class="rate" type="number" value="700" placeholder="Enter Rate" /></td>
+           <td><input  class="qty"  type="number" value="1"      placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+      </tr>
+      
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <select class="description">
+            <option value="डोर ग्लास मशीन BS6">फाटक काँच मशीन BS6</option>
+          </select>
+        </td>
+        <td><input class="rate" type="number" value="2100" placeholder="Enter Rate" /></td>
+           <td><input  class="qty"  type="number" value="1"      placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+      </tr>
+      
+
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <select class="description">
+            <option value="डोर RC लॉक BS6">फाटक RC लॉक BS6</option>
+          </select>
+        </td>
+        <td><input class="rate" type="number" value="1400" placeholder="Enter Rate" /></td>
+           <td><input  class="qty"  type="number" value="1"      placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+      </tr> <tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <select class="description">
+            <option value="डोर RC लॉक सेट BS6">फाटक RC लॉक सेट BS6</option>
+          </select>
+        </td>
+        <td><input class="rate" type="number" value="2100" placeholder="Enter Rate" /></td>
+           <td><input  class="qty"  type="number"  value="1"     placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+      </tr> <tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <select class="description">
+            <option value="डोर हैंडल BS6">फाटक हैंडल BS6</option>
+          </select>
+        </td>
+        <td><input class="rate" type="number" value="2400" placeholder="Enter Rate" /></td>
+           <td><input  class="qty"  type="number" value="1"      placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+      </tr> <tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <select class="description">
+            <option value="डोर लॉक सेट BS6">फाटक लॉक सेट BS6</option>
+          </select>
+        </td>
+        <td><input class="rate" type="number" value="2250" placeholder="Enter Rate" /></td>
+           <td><input  class="qty"  type="number"  value="1"     placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+      </tr>
+
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <select class="description">
+            <option value="डोर ट्रिम पैड BS4">फाटक ट्रिम पैड BS4</option>
+          </select>
+        </td>
+        <td><input class="rate" type="number" value="3800" placeholder="Enter Rate" /></td>
+           <td><input  class="qty"  type="number"  value="1"     placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+      </tr>
+
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <select class="description">
+            <option value="डोर ट्रिम पैड BS6">फाटक ट्रिम पैड BS6</option>
+
+          </select>
+        </td>
+        <td><input class="rate" type="number" value="5500" placeholder="Enter Rate" /></td>
+           <td><input  class="qty"  type="number"  value="1"     placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+      </tr>
+
+
+
+<tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <select class="description">
+            <option value=" पुरा गेट BS4 / BS3 (काउल मात्र) "> पुरा गेट BS4 / BS3 (काउल मात्र) </option>
+
+          </select>
+        </td>
+        <td><input class="rate" type="number" value="14000" placeholder="Enter Rate" /></td>
+           <td><input  class="qty"  type="number" value="1"      placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+      </tr>
+
+
+
+  <tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <select class="description">
+            <option value=" पुरा गेट BS6 (काउल मात्र)"> पुरा गेट BS6 (काउल मात्र) </option>
+
+          </select>
+        </td>
+        <td><input class="rate" type="number" value="21000" placeholder="Enter Rate" /></td>
+           <td><input  class="qty"  type="number"  value="1"      placeholder=" Enter QTY" /></td>
+             <td><input  class="total"  type="number"   placeholder=" Total Amount"  readonly /></td>
+      </tr>
+
+
+
+
+
+
+
+
+
+
+</tr>
+
+
+
+
+
+
+
+
+      </tbody>
+      <footer>
+<td colspan="4" id="bottomname">Grand Total</td>
+    <td><input type="number" id="grandTotal" readonly /></td>
+    </footer>
+  </table>
+
+</div>
+
+
+  
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+
+<script src="script.js"></script>
+<script>
+    document.addEventListener('contextmenu',function(e){e.preventDefault();});
+document.addEventListener('keydown',function(e){
+if(e.keyCode===123){e.preventDefault();}
+if(e.ctrlKey&&e.shiftKey&&e.keyCode===73){e.preventDefault();}
+if(e.ctrlKey&&e.keyCode===85){e.preventDefault();}
+});
+    checkLogin();
+</script>
+
+
+</body>
+</html>
+ 
+
+
+
+
+
+

@@ -1,0 +1,391 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Selected Materials</title>
+    <link rel="stylesheet" href="./stylesheet.css" />
+  </head>
+  <body>
+
+
+    <div id="controls">
+      <button onclick="addRow()">Add Row</button>
+      <button onclick="deleteSelectedRows()">Delete Selected</button>
+     <button onclick="printData()">Print</button>
+      <button onclick="downloadTableAsImage()">Download as Image</button>
+      <button onclick="downloadTableAsPDF()">Download as PDF</button>
+      </div>
+
+
+
+
+<div id="mainContent">
+
+
+    <nav>
+      <h1>Estimate</h1>
+    
+      <div id="head">
+        <div>
+          <h3><u>Malwa Trolley</u></h3>
+          <p>09,Nemwar Road,Udyog nagar ,Palda<br>Indore</p>
+          <p>Contact  - +91 822 4000 822</p>
+          <p> GSTIN : 23CLKPM9473J1ZI</p>
+        </div>
+    
+        <div>
+          <img src="./Malwalogo.jpeg" alt="Image">
+        </div>
+      </div>
+    
+      <div id="main">
+        <label><u>Invoice To</u><br>
+          <input type="text" id="invoiceTo">
+        </label>
+    
+        <label><u>Data No.</u><br>
+          <input type="text" id="dataNo">
+        </label>
+    
+        <label><u>Date</u><br>
+          <input type="date" id="date">
+        </label>
+      </div>
+    
+      <div id="btm">
+        <label><u>Consignee GST No.</u><br>
+          <input type="text" id="gstNo">
+        </label>
+    
+        <label><u>Veh.No.</u><br>
+          <input type="text" id="vehNo">
+        </label>
+      </div>
+    </nav>
+    
+    
+
+ 
+
+
+
+
+
+
+    <table id="materialTable">
+      <thead>
+        <tr>
+          
+          <th>checkbox</th>
+          <th>Description</th>
+          <th>Rate</th>
+          <th>QTY</th>
+          <th>Total</th>
+
+        
+        </tr>
+      </thead>
+      <tbody>
+        Rows will be injected from localStorage
+      </tbody>
+    </table>
+</div>
+
+
+
+
+
+    <script src="script.js"></script>
+    <script>  
+      //  Load selected rows from localStorage
+      const selectedData = JSON.parse(
+        localStorage.getItem("selectedData") || "[]"
+      );
+      const tbody = document.querySelector("#materialTable tbody");
+      selectedData.forEach((item) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+         <td><input type="checkbox" /></td>
+        <td><input type="text"  value="${item.description}" /></td>
+        <td><input type="number" class="rate"       value="${item.rate}" /></td>
+        <td><input type="text"   class="qty"        value="${item.box}" /></td>
+        <td><input type="number"  class="total"     value="${item.total}"  readonly /></td>
+       
+
+      `;
+  
+    
+
+        tbody.appendChild(row);
+
+        attachEventListeners(row);
+      });
+
+
+
+ 
+function attachEventListeners(row){
+  const rateinput = row.querySelector('.rate');
+  const qtyinput = row.querySelector('.qty');
+  const totalinput = row.querySelector('.total');
+
+  function calculateTotal(){
+    const rate = parseFloat(rateinput.value) || 0;
+    const qty = parseFloat(qtyinput.value) || 0;
+    totalinput.value = rate*qty;
+  }
+  
+  rateinput.addEventListener("input", calculateTotal);
+  qtyinput.addEventListener("input", calculateTotal);
+}
+
+
+
+
+
+
+      function downloadTableAsImage() {
+        const table = document.getElementById("mainContent");
+
+        html2canvas(document.getElementById("mainContent")).then(canvas => {
+          const link = document.createElement("a");
+          link.download = "full_page.png"; // Change to .jpg if needed
+          link.href = canvas.toDataURL("image/png");
+          link.click();
+        });
+ }
+
+
+ document.getElementById("invoiceTo").value = localStorage.getItem("invoiceTo");
+  document.getElementById("dataNo").value   = localStorage.getItem("dataNo");
+  document.getElementById("date").value     = localStorage.getItem("date");
+  document.getElementById("gstNo").value    = localStorage.getItem("gstNo");
+  document.getElementById("vehNo").value    = localStorage.getItem("vehNo");
+
+
+
+
+
+
+
+
+    </script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  </body>
+</html>-->
+
+
+
+<!-- new code -->
+
+ <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Selected Materials</title>
+    <link rel="stylesheet" href="./stylesheet.css" />
+  </head>
+  <body>
+
+
+    <div id="controls">
+      <button onclick="addRow()">Add Row</button>
+      <button onclick="deleteSelectedRows()">Delete Selected</button>
+     <button onclick="printData()">Print</button>
+      <button onclick="downloadTableAsImage()">Download as Image</button>
+      <button onclick="downloadTableAsPDF()">Download as PDF</button>
+     
+
+      </div>
+
+
+
+
+<div id="mainContent">
+
+
+    <nav>
+      <h1>Estimate</h1>
+    
+      <div id="head">
+        <div>
+          <h3><u>Malwa Trolley</u></h3>
+          <p>09,Nemwar Road,Udyog nagar ,Palda<br>Indore</p>
+          <p>Contact  - +91 822 4000 822</p>
+          <p> GSTIN : 23CLKPM9473J1ZI</p>
+        </div>
+    
+        <div>
+          <img src="./Malwalogo.jpeg" alt="Image">
+        </div>
+      </div>
+    
+      <div id="main">
+        <label><u>Invoice To</u><br>
+          <input type="text" id="invoiceTo">
+        </label>
+    
+        <label><u>Data No.</u><br>
+          <input type="text" id="dataNo">
+        </label>
+    
+        <label><u>Date</u><br>
+          <input type="date" id="date">
+        </label>
+      </div>
+    
+      <div id="btm">
+        <label><u>Consignee GST No.</u><br>
+          <input type="text" id="gstNo">
+        </label>
+    
+        <label><u>Veh.No.</u><br>
+          <input type="text" id="vehNo">
+        </label>
+      </div>
+    </nav>
+    
+    
+
+ 
+
+
+
+
+
+
+    <table id="materialTable">
+      <thead>
+        <tr>
+          
+          <th>checkbox</th>
+          <th>Description</th>
+          <th>Rate</th>
+          <th>QTY</th>
+          <th>Total</th>
+
+        
+        </tr>
+      </thead>
+<tbody id="selectedTableBody">
+    <!-- Yaha data aayega -->
+  </tbody>
+  
+</table>
+</div>
+
+
+
+
+
+    <script src="script.js"></script>
+    <script>  
+
+
+
+
+ 
+function attachEventListeners(row){
+  const rateinput = row.querySelector('.rate');
+  const qtyinput = row.querySelector('.qty');
+  const totalinput = row.querySelector('.total');
+
+  function calculateTotal(){
+    const rate = parseFloat(rateinput.value) || 0;
+    const qty = parseFloat(qtyinput.value) || 0;
+    totalinput.value = rate*qty;
+  }
+  
+  rateinput.addEventListener("input", calculateTotal);
+  qtyinput.addEventListener("input", calculateTotal);
+}
+
+
+
+
+
+
+
+
+
+
+      function downloadTableAsImage() {
+        const table = document.getElementById("mainContent");
+
+        html2canvas(document.getElementById("mainContent")).then(canvas => {
+          const link = document.createElement("a");
+          link.download = "full_page.png"; // Change to .jpg if needed
+          link.href = canvas.toDataURL("image/png");
+          link.click();
+        });
+ }
+
+
+
+
+
+
+
+
+
+
+
+ document.getElementById("invoiceTo").value = localStorage.getItem("invoiceTo");
+  document.getElementById("dataNo").value   = localStorage.getItem("dataNo");
+  document.getElementById("date").value     = localStorage.getItem("date");
+  document.getElementById("gstNo").value    = localStorage.getItem("gstNo");
+  document.getElementById("vehNo").value    = localStorage.getItem("vehNo");
+
+
+
+
+
+
+
+
+
+
+                      // transfer
+
+window.onload = function () {
+  const data = JSON.parse(localStorage.getItem("selectedData")) || [];
+  const tableBody = document.getElementById("selectedTableBody");
+
+  let grandTotal = 0;
+
+  data.forEach(item => {
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+     <td><input type="text"  id="serial" value="${item.serial}" readonly /></td>
+        <td><input type="text"  id="des"  value="${item.description}" /></td>
+        <td><input type="number" class="rate"       value="${item.rate}" /></td>
+        <td><input type="text"   class="qty"        value="${item.box}" /></td>
+        <td><input type="number"  class="total"     value="${item.total}"  readonly /></td>`;
+
+    tableBody.appendChild(row);
+
+    grandTotal += item.total;
+  });
+
+  // Ab Grand Total row table ke last me lagao
+    const grandTotalRow = document.createElement("tr");
+    grandTotalRow.innerHTML = `
+      <td colspan="4" id="bottomname">Grand Total</td>
+      <td style="font-weight:bold;">${grandTotal}</td>
+    `;
+
+    tableBody.appendChild(grandTotalRow);
+  };
+
+
+
+
+    </script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  </body>
+</html> 
+
+

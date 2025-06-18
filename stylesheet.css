@@ -1,0 +1,271 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background:white;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+   /* background-color: rgb(58, 58, 199);
+   color: white; */
+   /* margin-top: 20px;
+  margin-left: 40px; */
+  padding: 40px;
+ }
+
+ /* input{
+width: 200px;
+height: 25px;
+border-radius: 5px;
+font-size: 15px;
+}
+.rate{
+  border: none;
+  outline: none;
+}
+.qty{
+  border: none;
+  outline: none;
+}
+.total{
+  border: none;
+  outline: none;
+}
+
+#serial{
+  border: none;
+  width: 100px;
+}
+#des{
+ border: none; 
+}
+
+.description{
+  font-size: 15px;
+  font-weight: 800;
+  width: 330px;
+  height: 50px;
+  text-align: center;
+  border: none;
+ outline: none;
+
+} */
+
+
+/* New code */
+
+#invoiceTo{
+width: 200px;
+height: 25px;
+border-radius: 5px;
+font-size: 15px;
+}  
+#dataNo{
+  width: 200px;
+height: 25px;
+border-radius: 5px;
+font-size: 15px;
+}
+#date{
+ width: 200px;
+height: 25px;
+border-radius: 5px;
+font-size: 15px;
+}
+#gstNo{
+width: 200px;
+height: 25px;
+border-radius: 5px;
+font-size: 15px;
+}
+#vehNo{
+  width: 200px;
+height: 25px;
+border-radius: 5px;
+font-size: 15px; {changes}
+}
+
+/* input{
+  width: 100px;
+height: 25px;
+font-size: 15px;
+} */
+
+ input{
+width: 100px;
+height: 25px;
+border-radius: 5px;
+font-size: 13px;
+font-weight: 400px;
+
+}
+.rate{
+  border: none;
+  outline: none;
+  width: 100px;
+    height: 45px;
+    font-size: 20px;
+}
+.qty{
+  border: none;
+  outline: none;
+  width: 50px;
+    /* height: 45px; */
+    font-size: 20px; 
+}
+.total{
+  border: none;
+  outline: none;
+      width: 100px;
+    height: 36px;
+    font-size: 21px;
+  
+}
+
+#serial{
+  border: none;
+  width: 55px; 
+  font-size:20px; 
+}
+#des{
+ border: none; 
+     width: 285px;
+    height: auto;
+    font-size: 17px;
+    font-weight: 600;
+   }
+
+
+
+
+
+
+
+
+
+
+.description{
+  font-size: 20px;
+  font-weight: 900;
+  width: 395px;
+  height: 54px;
+  text-align: center;
+  border: none;
+ outline: none;
+}
+
+
+
+
+/* end */
+  th, td {
+
+  border: 1px solid #ccc;
+text-align-last: center;
+    /* background-color: rgb(58, 58, 199);
+color: white; */
+  }
+
+  th{
+    width: 100px;
+    height: 40px; 
+    background-color: blue;
+    color: white;
+  
+  }
+  
+  button {
+    margin: 10px 5px 10px;
+    padding: 10px 15px;
+    cursor:pointer;
+    font-size: 20px;
+    font-weight:lighter;
+    border-radius: 10px;
+    border: 0;
+    background-color:rgba(243, 0, 0, 0.671);
+    color: rgb(255, 255, 255);
+    transition:all 0.5 ease;
+    letter-spacing: 0.5px;
+    box-shadow: rgb(0 0 0/5%)0  0  8px;
+    }
+
+    button:hover{
+      background-color: blue;
+      color: white;
+      box-shadow: rgb(93 24 220) 0px 7px 29px;
+      letter-spacing: 1px;
+    }
+    button::active{
+      letter-spacing: 3px;
+      background-color: hsl(261deg 80% 48%);
+      color: hsl(0, 0%, 100%);
+      box-shadow: rgb(93, 24, 220) 0px 0px 0px 0px;
+      box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
+      transform: translateY(10px);
+      transition: 100ms;
+    }
+  
+  #controls {
+    margin-bottom: 15px;
+  }
+  
+h1{
+  background-color: red;
+  text-align: center;
+  color: white;
+}
+
+#head{
+  display: flex;
+   justify-content: space-between;
+   margin: 40px;
+   margin-top: 30px;
+   font-size: 18px;
+}
+
+h3{
+  color: red;
+}
+
+#main{
+  display: flex;
+  gap: 11rem;
+  margin: 40px;
+  margin-top: 30px;
+}
+
+u{
+  color: red;
+ }
+
+ #btm{
+  display: flex;
+  margin: 40px;
+  gap:11rem;
+  margin-top: 30px;
+
+}
+
+#controls{
+margin-top: 40px;
+}
+
+#grandTotal{
+  border: none;
+  outline: none;
+   font-size: 20px; 
+}
+
+#bottomname{
+  text-align: right;
+  font-weight: 700;
+  height: 40px;
+   font-size: 20px; 
+}
+
+@media print {
+  #controls {
+    display: none;
+  }
+}
